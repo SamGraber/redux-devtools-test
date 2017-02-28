@@ -1,7 +1,7 @@
 
 var withDevTools = (
   // process.env.NODE_ENV === 'development' &&
-  typeof window !== 'undefined' && window.devToolsExtension
+  typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION__
 );
 
 let devTools;
@@ -10,7 +10,7 @@ let state = { counter: 0 };
 renderState();
 
 if (withDevTools) {
-	devTools = window.devToolsExtension.connect();
+	devTools = window.__REDUX_DEVTOOLS_EXTENSION__.connect();
 	unsubscribe = devTools.subscribe((message) => {
 		// Implement monitors actions.
 		// For example time traveling:
